@@ -212,7 +212,7 @@ function LandingPage() {
     <>
       {/* ── WhatsApp Float ── */}
       <a
-        href="https://wa.me/5215500000000?text=Hola%2C%20me%20interesa%20ver%20un%20demo%20de%20p%C3%A1gina%20web%20para%20mi%20negocio"
+        href="https://wa.me/5213315534380?text=Hola%2C%20me%20interesa%20ver%20un%20demo%20de%20p%C3%A1gina%20web%20para%20mi%20negocio"
         target="_blank"
         rel="noopener noreferrer"
         className="whatsapp-float"
