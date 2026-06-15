@@ -3,8 +3,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { useEffect, useRef, useState } from 'react'
 
 export const submitFormFn = createServerFn({ method: 'POST' })
-  .validator((data: Record<string, string>) => data)
-  .handler(async ({ data }) => {
+  .handler(async ({ data }: { data: Record<string, string> }) => {
     const email = process.env.CONTACT_EMAIL
     if (!email) throw new Error('CONTACT_EMAIL environment variable is missing')
 
