@@ -1,24 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { createServerFn } from '@tanstack/react-start'
 import { useEffect, useRef, useState } from 'react'
-
-export const submitFormFn = createServerFn({ method: 'POST' })
-  .handler(async ({ data }: { data: Record<string, string> }) => {
-    const email = process.env.CONTACT_EMAIL
-    if (!email) throw new Error('CONTACT_EMAIL environment variable is missing')
-
-    const res = await fetch(`https://formsubmit.co/ajax/${email}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-
-    if (!res.ok) throw new Error('Failed to submit form')
-    return { success: true }
-  })
 
 export const Route = createFileRoute('/')({
   component: LandingPage,
@@ -198,29 +179,8 @@ function LandingPage() {
   useReveal()
   const [activeIndustry, setActiveIndustry] = useState(0)
   const [activeAuto, setActiveAuto] = useState(0)
-  const [formStatus, setFormStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
-  const [showToast, setShowToast] = useState(false)
+  const [formStatus] = useState<'idle'>('idle')
   const formRef = useRef<HTMLFormElement>(null)
-
-  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setFormStatus('loading')
-    try {
-      const formData = new FormData(e.currentTarget)
-      const data = Object.fromEntries(formData.entries()) as Record<string, string>
-      const result = await submitFormFn({ data })
-      if (result.success) {
-        setFormStatus('success')
-        formRef.current?.reset()
-        setShowToast(true)
-        setTimeout(() => setShowToast(false), 5000)
-      } else {
-        setFormStatus('error')
-      }
-    } catch {
-      setFormStatus('error')
-    }
-  }
 
   const ind = industries[activeIndustry]
 
@@ -239,10 +199,8 @@ function LandingPage() {
         </svg>
       </a>
 
-      {/* ── Toast ── */}
-      {showToast && (
-        <div className="toast">✅ ¡Recibido! Te contactamos en menos de 24 horas.</div>
-      )}
+
+
 
       {/* ════════════════════════════════════
           NAV
@@ -848,7 +806,16 @@ function LandingPage() {
                     <h3 className="text-xl font-black text-white mb-2">Crear mi demo gratis</h3>
                     <p className="text-white/45 text-sm mb-6">Completa el formulario y te contactamos en máximo 24 horas</p>
 
-                    <form ref={formRef} name="demo-request" onSubmit={handleFormSubmit}>
+                    <form
+                      ref={formRef}
+                      action="https://formsubmit.co/rornelas1876@gmail.com"
+                      method="POST"
+                    >
+                      {/* FormSubmit hidden config fields */}
+                      <input type="hidden" name="_captcha" value="false" />
+                      <input type="hidden" name="_template" value="table" />
+                      <input type="hidden" name="_subject" value="🎯 Nueva solicitud de demo - WebPro" />
+                      <input type="hidden" name="_next" value="https://webpro.mx/gracias" />
 
                       <div className="grid sm:grid-cols-2 gap-4">
                         <div>
@@ -927,6 +894,7 @@ function LandingPage() {
                       >
                         {formStatus === 'loading' ? '⏳ Enviando...' : '🎯 Crear mi demo gratis'}
                       </button>
+
 
                       {formStatus === 'error' && (
                         <p className="text-red-400 text-sm text-center mt-3">
@@ -1019,9 +987,6 @@ function LandingPage() {
               <div className="flex flex-col gap-3">
                 <a href="https://wa.me/5215500000000" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/40 hover:text-white/70 text-sm transition-colors">
                   💬 WhatsApp
-                </a>
-                <a href="mailto:hola@webpro.mx" className="flex items-center gap-2 text-white/40 hover:text-white/70 text-sm transition-colors">
-                  ✉️ hola@webpro.mx
                 </a>
                 <a href="#contacto" className="btn-primary mt-2" style={{ padding: '0.6rem 1.2rem', fontSize: '0.85rem' }}>
                   Demo gratis
