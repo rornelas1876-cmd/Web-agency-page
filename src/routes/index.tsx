@@ -1,5 +1,25 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { createServerFn } from '@tanstack/react-start'
 import { useEffect, useRef, useState } from 'react'
+
+export const submitFormFn = createServerFn({ method: 'POST' })
+  .validator((data: Record<string, string>) => data)
+  .handler(async ({ data }) => {
+    const email = process.env.CONTACT_EMAIL
+    if (!email) throw new Error('CONTACT_EMAIL environment variable is missing')
+
+    const res = await fetch(`https://formsubmit.co/ajax/${email}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+
+    if (!res.ok) throw new Error('Failed to submit form')
+    return { success: true }
+  })
 
 export const Route = createFileRoute('/')({
   component: LandingPage,
@@ -187,13 +207,10 @@ function LandingPage() {
     e.preventDefault()
     setFormStatus('loading')
     try {
-      const body = new URLSearchParams(new FormData(e.currentTarget) as any).toString()
-      const res = await fetch('/__forms.html', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body,
-      })
-      if (res.ok) {
+      const formData = new FormData(e.currentTarget)
+      const data = Object.fromEntries(formData.entries()) as Record<string, string>
+      const result = await submitFormFn({ data })
+      if (result.success) {
         setFormStatus('success')
         formRef.current?.reset()
         setShowToast(true)
@@ -832,11 +849,7 @@ function LandingPage() {
                     <h3 className="text-xl font-black text-white mb-2">Crear mi demo gratis</h3>
                     <p className="text-white/45 text-sm mb-6">Completa el formulario y te contactamos en máximo 24 horas</p>
 
-                    <form ref={formRef} name="demo-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleFormSubmit}>
-                      <input type="hidden" name="form-name" value="demo-request" />
-                      <p style={{ display: 'none' }}>
-                        <label>No llenar: <input name="bot-field" /></label>
-                      </p>
+                    <form ref={formRef} name="demo-request" onSubmit={handleFormSubmit}>
 
                       <div className="grid sm:grid-cols-2 gap-4">
                         <div>
