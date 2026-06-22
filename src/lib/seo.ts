@@ -19,6 +19,22 @@ export function localBusinessJsonLd() {
   }
 }
 
+export function websiteJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'WebPro México',
+    url: SITE_URL,
+    description:
+      'Páginas web profesionales para negocios mexicanos. Diseño rápido, SEO básico, WhatsApp y Google optimizado.',
+    inLanguage: 'es-MX',
+    publisher: {
+      '@type': 'Organization',
+      name: 'WebPro México',
+    },
+  }
+}
+
 export function faqJsonLd() {
   return {
     '@context': 'https://schema.org',

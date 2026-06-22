@@ -2,17 +2,20 @@ import { useEffect, useState } from 'react'
 import { Menu, X, Rocket } from 'lucide-react'
 
 const NAV_LINKS = [
-  { label: 'Inicio', href: '#inicio' },
-  { label: 'Servicios', href: '#servicios' },
-  { label: 'Proceso', href: '#proceso' },
-  { label: 'Precios', href: '#precios' },
-  { label: 'Preguntas', href: '#preguntas' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: 'Inicio', href: '#inicio', id: 'inicio' },
+  { label: 'Servicios', href: '#servicios', id: 'servicios' },
+  { label: 'Proceso', href: '#proceso', id: 'proceso' },
+  { label: 'Precios', href: '#precios', id: 'precios' },
+  { label: 'Preguntas', href: '#preguntas', id: 'preguntas' },
+  { label: 'Contacto', href: '#contacto', id: 'contacto' },
 ]
+
+const SECTION_IDS = NAV_LINKS.map((l) => l.id)
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState('inicio')
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -24,6 +27,29 @@ export function Navbar() {
     document.body.style.overflow = open ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [open])
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = []
+
+    SECTION_IDS.forEach((id) => {
+      const el = document.getElementById(id)
+      if (!el) return
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveSection(id)
+        },
+        { rootMargin: '-40% 0px -50% 0px', threshold: 0 },
+      )
+      observer.observe(el)
+      observers.push(observer)
+    })
+
+    return () => observers.forEach((o) => o.disconnect())
+  }, [])
+
+  const linkClass = (id: string) =>
+    id === activeSection ? 'text-white text-sm font-semibold' : 'text-white/60 hover:text-white text-sm font-medium transition-colors'
 
   return (
     <nav className={`nav-blur fixed top-0 left-0 right-0 z-50 ${scrolled ? 'shadow-lg shadow-black/20' : ''}`}>
@@ -39,11 +65,7 @@ export function Navbar() {
 
         <div className="hidden lg:flex items-center gap-7">
           {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-white/60 hover:text-white text-sm font-medium transition-colors"
-            >
+            <a key={link.href} href={link.href} className={linkClass(link.id)}>
               {link.label}
             </a>
           ))}
@@ -76,7 +98,7 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-white/80 hover:text-white text-base font-medium py-3 px-2 transition-colors"
+                className={`py-3 px-2 transition-colors ${link.id === activeSection ? 'text-white font-semibold' : 'text-white/80 hover:text-white font-medium'}`}
                 style={{ minHeight: '48px', display: 'flex', alignItems: 'center' }}
                 onClick={() => setOpen(false)}
               >

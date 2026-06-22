@@ -2,7 +2,7 @@ import { ArrowRight, Check, MessageCircle, Calendar, MapPin } from 'lucide-react
 
 export function HeroSection() {
   return (
-    <section id="inicio" className="hero-bg min-h-screen flex items-center pt-20 pb-16" aria-labelledby="hero-heading">
+    <section className="hero-bg min-h-screen flex items-center pt-20 pb-16" aria-labelledby="hero-heading">
       <div className="max-w-7xl mx-auto px-5 w-full">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
@@ -70,15 +70,11 @@ export function HeroSection() {
                     <span className="text-white/40 text-xs">tunegocio.com</span>
                   </div>
                 </div>
-                <div
-                  className="w-full flex items-center justify-center"
-                  style={{ height: 340, background: 'linear-gradient(135deg, #1E293B 0%, #334155 50%, #1E293B 100%)' }}
-                >
-                  <div className="text-center px-8">
-                    <div className="text-white/30 text-sm mb-2">Vista previa</div>
-                    <div className="text-white font-bold text-xl">Tu negocio, profesional</div>
-                  </div>
-                </div>
+                <img
+                  src="/previews/restaurant.png"
+                  alt="Ejemplo de página web profesional para restaurante"
+                  style={{ display: 'block', width: '100%', height: 340, objectFit: 'cover' }}
+                />
                 <div style={{ display: 'flex', background: '#1E293B', padding: '1rem 1.5rem', gap: '1.5rem' }}>
                   {[
                     { Icon: MessageCircle, label: 'WhatsApp' },

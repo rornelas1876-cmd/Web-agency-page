@@ -12,9 +12,3 @@ export const cities = [
   'San Luis Potosí',
   'Oaxaca',
 ]
-
-export const trustIndicators = [
-  { stat: '200+', label: 'Proyectos realizados' },
-  { stat: '100%', label: 'Diseño personalizado' },
-  { stat: '24/7', label: 'Soporte en español' },
-]

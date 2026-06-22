@@ -50,16 +50,13 @@ export function ExamplesGallery() {
                 <span className="text-white/40 text-xs">{details.name.toLowerCase().replace(/\s+/g, '')}.com.mx</span>
               </div>
             </div>
-            <div
-              className="flex items-center justify-center"
-              style={{ height: 240, background: `linear-gradient(135deg, ${ind.color}22, ${ind.color}44)` }}
-            >
-              <div className="text-center">
-                <ind.Icon size={48} color={ind.color} className="mx-auto mb-3" />
-                <div className="font-black text-xl" style={{ color: '#0A0F1E' }}>{details.name}</div>
-                <div className="text-gray-500 text-sm mt-1">{ind.label}</div>
-              </div>
-            </div>
+            <img
+              src={`/previews/${ind.id}.png`}
+              alt={`Ejemplo de página web para ${ind.label}`}
+              loading="lazy"
+              className="w-full object-cover"
+              style={{ height: 240, display: 'block' }}
+            />
             <div style={{ background: 'white', padding: '1.25rem' }}>
               <div className="grid grid-cols-2 gap-2">
                 {details.features.map((f) => (

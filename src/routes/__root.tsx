@@ -1,6 +1,6 @@
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
 import { Analytics } from '@/components/layout/Analytics'
-import { faqJsonLd, localBusinessJsonLd } from '@/lib/seo'
+import { faqJsonLd, localBusinessJsonLd, websiteJsonLd } from '@/lib/seo'
 import { SITE_URL } from '@/data/site'
 import '../styles.css'
 
@@ -49,6 +49,10 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     <html lang="es">
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd()) }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd()) }}
