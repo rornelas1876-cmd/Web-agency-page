@@ -1,17 +1,16 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { Calendar, CheckCircle2, Home, MessageCircle, Rocket } from 'lucide-react'
+import { CALENDLY_URL, whatsappUrl } from '@/data/site'
 
 export const Route = createFileRoute('/gracias')({
   component: GraciasPage,
   head: () => ({
     meta: [
       { title: '¡Gracias! — WebPro México' },
-      { name: 'description', content: 'Recibimos tu solicitud. Te contactamos pronto con el demo de tu negocio.' },
+      { name: 'description', content: 'Recibimos tu solicitud. Te contactamos pronto con tu cotización personalizada.' },
     ],
   }),
 })
-
-const CALENDLY_URL = 'https://calendly.com/rornelas1876/30min'
 
 function GraciasPage() {
   return (
@@ -25,25 +24,19 @@ function GraciasPage() {
           ¡Solicitud recibida!
         </h1>
         <p className="text-white/60 text-lg mb-10 leading-relaxed">
-          Gracias por contactarnos. Revisaremos la información de tu negocio y te escribimos en menos de 24 horas con tu demo personalizado.
+          Gracias por contactarnos. Te escribimos por WhatsApp en menos de 24 horas con tu cotización personalizada.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-          <a
-            href={CALENDLY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary justify-center"
-            style={{ fontSize: '1rem', padding: '1rem 2rem' }}
-          >
+          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary justify-center" style={{ fontSize: '1rem', padding: '1rem 2rem', minHeight: '48px' }}>
             <Calendar size={18} /> Agendar llamada de 30 min
           </a>
           <a
-            href="https://wa.me/5213315534380?text=Hola%2C%20acabo%20de%20llenar%20el%20formulario%20para%20un%20demo"
+            href={whatsappUrl('Hola, acabo de llenar el formulario para cotizar mi página web.')}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-whatsapp justify-center"
-            style={{ fontSize: '1rem', padding: '1rem 2rem' }}
+            style={{ fontSize: '1rem', padding: '1rem 2rem', minHeight: '48px' }}
           >
             <MessageCircle size={18} /> Confirmar por WhatsApp
           </a>
