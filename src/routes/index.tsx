@@ -14,6 +14,8 @@ export const Route = createFileRoute('/')({
   component: LandingPage,
 })
 
+const CALENDLY_URL = 'https://calendly.com/rornelas1876/30min'
+
 /* ── Scroll reveal hook ── */
 function useReveal() {
   useEffect(() => {
@@ -256,9 +258,10 @@ function LandingPage() {
             <a href="#automatizaciones" className="text-white/60 hover:text-white text-sm font-medium transition-colors">Automatizaciones</a>
             <a href="#precios" className="text-white/60 hover:text-white text-sm font-medium transition-colors">Precios</a>
             <a href="#contacto" className="text-white/60 hover:text-white text-sm font-medium transition-colors">Contacto</a>
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white text-sm font-medium transition-colors">Agendar llamada</a>
           </div>
-          <a href="#contacto" className="btn-primary" style={{ padding: '0.6rem 1.4rem', fontSize: '0.875rem' }}>
-            Demo Gratis
+          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ padding: '0.6rem 1.4rem', fontSize: '0.875rem' }}>
+            <Calendar size={16} /> Agendar demo
           </a>
         </div>
       </nav>
@@ -301,8 +304,11 @@ function LandingPage() {
 
               {/* CTAs */}
               <div className="flex flex-wrap gap-4 mb-10">
-                <a href="#contacto" className="btn-primary text-base">
-                  <Target size={18} /> Solicitar demo gratis
+                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary text-base">
+                  <Calendar size={18} /> Agendar demo gratis
+                </a>
+                <a href="#contacto" className="btn-secondary text-base">
+                  Solicitar por formulario
                 </a>
                 <a href="#soluciones" className="btn-secondary text-base">
                   Ver ejemplos <ArrowRight size={18} />
@@ -818,7 +824,20 @@ function LandingPage() {
                 ))}
               </div>
 
-              {/* Alternative WhatsApp CTA */}
+              {/* Alternative contact CTAs */}
+              <div className="rounded-2xl p-5 mb-5" style={{ background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.2)' }}>
+                <p className="text-white/60 text-sm mb-3">¿Prefieres agendar una llamada?</p>
+                <a
+                  href={CALENDLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                  style={{ padding: '0.75rem 1.5rem', fontSize: '0.9rem' }}
+                >
+                  <Calendar size={18} />
+                  Agendar 30 min en Calendly
+                </a>
+              </div>
               <div className="rounded-2xl p-5" style={{ background: 'rgba(37,211,102,0.08)', border: '1px solid rgba(37,211,102,0.2)' }}>
                 <p className="text-white/60 text-sm mb-3">¿Prefieres hablar directamente?</p>
                 <a
@@ -981,8 +1000,11 @@ function LandingPage() {
               No esperes más. Solicita tu demostración gratuita hoy y empieza a capturar clientes desde el primer día.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <a href="#contacto" className="btn-primary" style={{ fontSize: '1.1rem', padding: '1rem 2.5rem' }}>
-                🚀 Solicitar demostración
+              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ fontSize: '1.1rem', padding: '1rem 2.5rem' }}>
+                <Calendar size={18} /> Agendar demostración
+              </a>
+              <a href="#contacto" className="btn-secondary" style={{ fontSize: '1.1rem', padding: '1rem 2.5rem' }}>
+                🚀 Solicitar por formulario
               </a>
               <a
                 href="https://wa.me/5215500000000?text=Hola%2C%20quiero%20una%20demo%20gratis%20para%20mi%20negocio"
@@ -1035,11 +1057,14 @@ function LandingPage() {
             <div>
               <h4 className="text-white/60 text-xs font-bold uppercase tracking-wider mb-4">Contacto</h4>
               <div className="flex flex-col gap-3">
-                <a href="https://wa.me/5215500000000" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/40 hover:text-white/70 text-sm transition-colors">
+                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/40 hover:text-white/70 text-sm transition-colors">
+                  <Calendar size={14} /> Agendar llamada
+                </a>
+                <a href="https://wa.me/5213315534380" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/40 hover:text-white/70 text-sm transition-colors">
                   💬 WhatsApp
                 </a>
-                <a href="#contacto" className="btn-primary mt-2" style={{ padding: '0.6rem 1.2rem', fontSize: '0.85rem' }}>
-                  Demo gratis
+                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary mt-2" style={{ padding: '0.6rem 1.2rem', fontSize: '0.85rem' }}>
+                  <Calendar size={14} /> Demo gratis
                 </a>
               </div>
             </div>
