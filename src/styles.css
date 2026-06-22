@@ -111,6 +111,29 @@ body {
 }
 .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.7); transform: translateY(-2px); }
 
+.btn-primary-light {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: linear-gradient(135deg, #F59E0B, #FF6B35);
+  color: white; font-weight: 700; font-size: 1rem;
+  border-radius: 0.75rem; border: none; cursor: pointer;
+  text-decoration: none; white-space: nowrap;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(245,158,11,0.35);
+}
+.btn-primary-light:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(245,158,11,0.5); }
+
+.btn-secondary-light {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: transparent; color: #0A0F1E;
+  font-weight: 600; font-size: 1rem;
+  border-radius: 0.75rem; border: 2px solid rgba(10,15,30,0.15);
+  cursor: pointer; text-decoration: none; white-space: nowrap;
+  transition: all 0.3s ease;
+}
+.btn-secondary-light:hover { background: rgba(10,15,30,0.04); border-color: rgba(10,15,30,0.3); transform: translateY(-2px); }
+
 .btn-whatsapp {
   display: inline-flex; align-items: center; gap: 0.5rem;
   padding: 0.875rem 2rem;
@@ -176,6 +199,22 @@ body {
   color: white; box-shadow: 0 4px 15px rgba(245,158,11,0.4);
 }
 
+.industry-tab-light {
+  padding: 0.5rem 1.1rem; border-radius: 100px;
+  font-size: 0.82rem; font-weight: 600; cursor: pointer;
+  transition: all 0.3s ease; border: 2px solid transparent;
+  white-space: nowrap;
+  background: white;
+  color: #64748B;
+  border-color: #E2E8F0;
+}
+.industry-tab-light:hover { border-color: #F59E0B; color: #0A0F1E; }
+.industry-tab-light.active {
+  background: linear-gradient(135deg, #F59E0B, #FF6B35);
+  color: white; border-color: transparent;
+  box-shadow: 0 4px 15px rgba(245,158,11,0.35);
+}
+
 /* ── Pricing ── */
 .pricing-card {
   border-radius: 1.5rem; padding: 2.25rem;
@@ -218,7 +257,11 @@ body {
   color: rgba(255,255,255,0.65); margin-bottom: 0.4rem;
   letter-spacing: 0.02em;
 }
+textarea.form-input { resize: vertical; min-height: 120px; }
 select.form-input option { background: #0F172A; color: white; }
+
+.section-light { }
+.section-dark { }
 
 /* ── WhatsApp float ── */
 .whatsapp-float {
@@ -293,4 +336,8 @@ select.form-input option { background: #0F172A; color: white; }
 @media (max-width: 768px) {
   .pricing-card.featured { transform: scale(1); }
   .stat-number { font-size: 2.1rem; }
+  .float { animation: none; }
+  .btn-primary, .btn-primary-light, .btn-secondary, .btn-secondary-light, .btn-whatsapp {
+    min-height: 48px;
+  }
 }
