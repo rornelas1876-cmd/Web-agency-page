@@ -2,9 +2,9 @@ import { createFileRoute } from '@tanstack/react-router'
 import { useEffect, useRef, useState } from 'react'
 import type { LucideIcon } from 'lucide-react'
 import {
-  Rocket, Zap, Target, ArrowRight, Check, Palette, Bot, Star, Clock,
-  MessageCircle, MapPin, ShieldCheck, FileText, CreditCard, Lock, PartyPopper,
-  AlertTriangle, MessageSquare, UtensilsCrossed, Hotel, Stethoscope, Scale,
+  Rocket, Zap, ArrowRight, Check, Palette, Bot, Star,
+  MessageCircle, MapPin, ShieldCheck, FileText, CreditCard, PartyPopper,
+  MessageSquare, UtensilsCrossed, Hotel, Stethoscope, Scale,
   Building2, Wind, Scissors, HardHat, Dumbbell, SearchX, Moon, PhoneMissed,
   BellOff, Instagram, MapPinOff, Globe, Calendar, CheckCircle2, Bell, Monitor,
   Phone, Smartphone, HeartPulse, Mail, Search, ImageIcon, Package,
@@ -246,22 +246,22 @@ function LandingPage() {
           NAV
       ════════════════════════════════════ */}
       <nav className="nav-blur fixed top-0 left-0 right-0 z-50">
-        <div className="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #F59E0B, #FF6B35)' }}>
-              <Rocket size={20} color="white" />
+        <div className="max-w-7xl mx-auto px-5 lg:px-8 py-3.5 flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <div className="w-9 h-9 rounded-xl flex items-center justify-center shadow-lg" style={{ background: 'linear-gradient(135deg, #F59E0B, #FF6B35)' }}>
+              <Rocket size={18} color="white" />
             </div>
-            <span className="text-white font-bold text-lg tracking-tight">WebPro <span className="gradient-text">México</span></span>
+            <span className="text-white font-semibold text-base tracking-tight">WebPro <span className="gradient-text">México</span></span>
           </div>
-          <div className="hidden md:flex items-center gap-8">
-            <a href="#soluciones" className="text-white/60 hover:text-white text-sm font-medium transition-colors">Soluciones</a>
-            <a href="#automatizaciones" className="text-white/60 hover:text-white text-sm font-medium transition-colors">Automatizaciones</a>
-            <a href="#precios" className="text-white/60 hover:text-white text-sm font-medium transition-colors">Precios</a>
-            <a href="#contacto" className="text-white/60 hover:text-white text-sm font-medium transition-colors">Contacto</a>
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white text-sm font-medium transition-colors">Agendar llamada</a>
+          <div className="hidden md:flex items-center gap-7">
+            <a href="#soluciones" className="nav-link">Soluciones</a>
+            <a href="#automatizaciones" className="nav-link">Automatizaciones</a>
+            <a href="#precios" className="nav-link">Precios</a>
+            <a href="#contacto" className="nav-link">Contacto</a>
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="nav-link">Agendar llamada</a>
           </div>
-          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ padding: '0.6rem 1.4rem', fontSize: '0.875rem' }}>
-            <Calendar size={16} /> Agendar demo
+          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ padding: '0.55rem 1.25rem', fontSize: '0.8125rem' }}>
+            <Calendar size={15} /> Agendar demo
           </a>
         </div>
       </nav>
@@ -269,26 +269,25 @@ function LandingPage() {
       {/* ════════════════════════════════════
           HERO
       ════════════════════════════════════ */}
-      <section className="hero-bg min-h-screen flex items-center pt-20 pb-16">
-        <div className="max-w-7xl mx-auto px-5 w-full">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section className="hero-bg ambient-orbs min-h-screen flex items-center pt-24 pb-20">
+        <div className="max-w-7xl mx-auto px-5 lg:px-8 w-full relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
             {/* Left */}
             <div>
-              <div className="feature-badge mb-6">
-                <Zap size={13} /> Agencia Digital #1 para PYMES en México
+              <div className="feature-badge mb-7">
+                <Zap size={12} /> Agencia Digital #1 para PYMES en México
               </div>
-              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-tight mb-6" style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '-0.02em' }}>
-                Tu negocio merece<br />
-                estar abierto <span className="gradient-text">24/7</span>
+              <h1 className="display-heading text-4xl sm:text-5xl lg:text-6xl xl:text-[4.25rem] text-white mb-6 text-balance">
+                Tu negocio merece estar abierto <span className="gradient-text">24/7</span>
               </h1>
-              <p className="text-xl text-white/70 leading-relaxed mb-8 max-w-lg">
+              <p className="text-lg lg:text-xl text-white/60 leading-relaxed mb-8 max-w-lg font-light">
                 Más clientes, más reservaciones y más ventas con una{' '}
-                <span className="text-white font-semibold">página web profesional</span> +{' '}
-                <span className="text-white font-semibold">automatizaciones inteligentes</span>.
+                <span className="text-white/90 font-medium">página web profesional</span> +{' '}
+                <span className="text-white/90 font-medium">automatizaciones inteligentes</span>.
               </p>
 
               {/* Trust chips */}
-              <div className="flex flex-wrap gap-2 mb-10">
+              <div className="flex flex-wrap gap-2 mb-9">
                 {[
                   { Icon: UtensilsCrossed, label: 'Restaurantes' },
                   { Icon: Hotel, label: 'Hoteles' },
@@ -296,27 +295,27 @@ function LandingPage() {
                   { Icon: Scale, label: 'Despachos' },
                   { Icon: Building2, label: 'Inmobiliarias' },
                 ].map((chip) => (
-                  <span key={chip.label} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold text-white/70 border border-white/10" style={{ background: 'rgba(255,255,255,0.06)' }}>
-                    <chip.Icon size={13} /> {chip.label}
+                  <span key={chip.label} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-white/60 border border-white/8 bg-white/4">
+                    <chip.Icon size={12} /> {chip.label}
                   </span>
                 ))}
               </div>
 
               {/* CTAs */}
-              <div className="flex flex-wrap gap-4 mb-10">
-                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary text-base">
-                  <Calendar size={18} /> Agendar demo gratis
+              <div className="flex flex-wrap gap-3 mb-12">
+                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                  <Calendar size={17} /> Agendar demo gratis
                 </a>
-                <a href="#contacto" className="btn-secondary text-base">
+                <a href="#contacto" className="btn-secondary">
                   Solicitar por formulario
                 </a>
-                <a href="#soluciones" className="btn-secondary text-base">
-                  Ver ejemplos <ArrowRight size={18} />
+                <a href="#soluciones" className="btn-secondary">
+                  Ver ejemplos <ArrowRight size={16} />
                 </a>
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/10">
+              <div className="grid grid-cols-3 gap-4 sm:gap-8 pt-8 border-t border-white/8">
                 {[
                   { num: '200+', label: 'Negocios digitalizados' },
                   { num: '3x', label: 'Más leads promedio' },
@@ -324,53 +323,47 @@ function LandingPage() {
                 ].map((s) => (
                   <div key={s.label}>
                     <div className="stat-number">{s.num}</div>
-                    <div className="text-white/50 text-xs mt-1 font-medium">{s.label}</div>
+                    <div className="text-white/45 text-xs mt-1.5 font-medium leading-snug">{s.label}</div>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Right — Floating mock browser */}
-            <div className="hidden lg:block">
+            <div className="hidden lg:block relative">
               <div className="float">
-                <div className="rounded-2xl overflow-hidden" style={{ boxShadow: '0 40px 80px rgba(0,0,0,0.6)', background: '#1E293B' }}>
-                  {/* Browser bar */}
-                  <div className="flex items-center gap-2 px-4 py-3" style={{ background: '#0F172A' }}>
-                    <span className="w-3 h-3 rounded-full bg-red-500"></span>
-                    <span className="w-3 h-3 rounded-full bg-yellow-500"></span>
-                    <span className="w-3 h-3 rounded-full bg-green-500"></span>
-                    <div className="flex-1 ml-2 h-5 rounded bg-white/10 flex items-center px-2">
-                      <span className="text-white/40 text-xs">tunegocio.com</span>
+                <div className="browser-mockup">
+                  <div className="browser-chrome">
+                    <span className="w-2.5 h-2.5 rounded-full bg-red-500/90"></span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/90"></span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-green-500/90"></span>
+                    <div className="flex-1 ml-2 h-6 rounded-md bg-white/6 flex items-center px-3">
+                      <span className="text-white/35 text-xs">tunegocio.com</span>
                     </div>
                   </div>
-                  {/* Mock site — real preview image */}
                   <img
                     src="/previews/restaurant.png"
                     alt="Ejemplo de página web profesional para restaurante"
-                    style={{ display: 'block', width: '100%', height: 340, objectFit: 'cover' }}
+                    className="block w-full h-[340px] object-cover"
                   />
-                  {/* Quick features row */}
-                  <div style={{ display: 'flex', background: '#1E293B', padding: '1rem 1.5rem', gap: '1.5rem' }}>
+                  <div className="flex bg-[#1E293B] px-6 py-4 gap-6">
                     {[
                       { Icon: MessageCircle, label: 'WhatsApp' },
                       { Icon: Calendar, label: 'Reservas' },
                       { Icon: MapPin, label: 'Ubicación' },
                     ].map((f) => (
-                      <span key={f.label} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', fontWeight: 600 }}>
-                        <f.Icon size={14} /> {f.label}
+                      <span key={f.label} className="inline-flex items-center gap-1.5 text-white/55 text-xs font-medium">
+                        <f.Icon size={13} /> {f.label}
                       </span>
                     ))}
                   </div>
                 </div>
               </div>
-              {/* Floating badges */}
-              <div className="absolute" style={{ position: 'relative' }}>
-                <div className="glass-card absolute -bottom-6 -left-8 px-4 py-3 flex items-center gap-2" style={{ position: 'absolute', bottom: -20, left: -30, zIndex: 10, background: 'rgba(20,184,166,0.15)', border: '1px solid rgba(20,184,166,0.3)', borderRadius: '0.875rem' }}>
-                  <Bot size={20} color="#5eead4" />
-                  <div>
-                    <div style={{ color: 'white', fontSize: '0.75rem', fontWeight: 700 }}>Respuesta automática</div>
-                    <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.65rem' }}>En menos de 1 minuto</div>
-                  </div>
+              <div className="glass-card absolute -bottom-4 -left-6 px-4 py-3 flex items-center gap-2.5 z-10" style={{ background: 'rgba(20,184,166,0.12)', border: '1px solid rgba(20,184,166,0.25)' }}>
+                <Bot size={18} color="#5eead4" />
+                <div>
+                  <div className="text-white text-xs font-semibold">Respuesta automática</div>
+                  <div className="text-white/45 text-[0.65rem]">En menos de 1 minuto</div>
                 </div>
               </div>
             </div>
@@ -381,23 +374,22 @@ function LandingPage() {
       {/* ════════════════════════════════════
           VALUE PROP — Problem Section
       ════════════════════════════════════ */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-5">
+      <section className="section-light section-padding dot-grid">
+        <div className="max-w-7xl mx-auto px-5 lg:px-8">
           <div className="text-center mb-16 reveal">
-            <div className="feature-badge mb-4" style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)', color: '#EF4444' }}>
-              <AlertTriangle size={13} /> El problema que cuesta ventas
+            <div className="section-eyebrow justify-center" style={{ color: '#EF4444' }}>
+              El problema que cuesta ventas
             </div>
-            <h2 className="text-4xl lg:text-5xl font-black mb-5" style={{ letterSpacing: '-0.02em', color: '#0A0F1E' }}>
-              Cada día sin página web,<br />
-              <span style={{ color: '#EF4444' }}>pierdes clientes</span>
+            <h2 className="display-heading text-3xl sm:text-4xl lg:text-5xl mb-5 text-balance" style={{ color: 'var(--navy)' }}>
+              Cada día sin página web, <span style={{ color: '#EF4444' }}>pierdes clientes</span>
             </h2>
-            <p className="text-xl text-gray-500 max-w-2xl mx-auto">
+            <p className="text-lg lg:text-xl text-gray-500 max-w-2xl mx-auto font-light">
               Deja de depender únicamente de Instagram y recomendaciones de boca en boca.
             </p>
           </div>
 
           {/* Problem grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
             {[
               { Icon: SearchX, title: 'Sin presencia en Google', desc: 'El 97% de las personas buscan negocios en Google antes de visitar. Si no estás, no existes.', color: '#EF4444' },
               { Icon: Moon, title: 'Tu negocio "duerme" 16 hrs', desc: 'Mientras tú descansas, clientes potenciales buscan tus servicios y encuentran a tu competencia.', color: '#F59E0B' },
@@ -406,30 +398,29 @@ function LandingPage() {
               { Icon: Instagram, title: 'Solo Instagram no es suficiente', desc: 'Las redes son para descubrimiento, no para conversión. Sin web, no hay credibilidad ni ventas.', color: '#EC4899' },
               { Icon: MapPinOff, title: 'Invisible en mapas', desc: 'Sin Google Business optimizado y página web, no apareces cuando alguien busca "cerca de mí".', color: '#14B8A6' },
             ].map((item) => (
-              <div key={item.title} className="card-hover reveal p-6 rounded-2xl border border-gray-100" style={{ background: '#FAFAFA' }}>
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ background: `${item.color}15` }}>
-                  <item.Icon size={24} color={item.color} />
+              <div key={item.title} className="surface-card reveal p-6 lg:p-7">
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ background: `${item.color}12` }}>
+                  <item.Icon size={22} color={item.color} />
                 </div>
-                <h3 className="text-lg font-bold mb-2" style={{ color: '#0A0F1E' }}>{item.title}</h3>
+                <h3 className="sans-heading text-lg mb-2" style={{ color: 'var(--navy)' }}>{item.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
-                <div className="mt-3 h-1 rounded-full w-12" style={{ background: item.color }}></div>
+                <div className="mt-4 h-0.5 rounded-full w-10" style={{ background: item.color, opacity: 0.6 }}></div>
               </div>
             ))}
           </div>
 
           {/* Solution banner */}
-          <div className="reveal rounded-3xl p-8 md:p-12 text-center" style={{ background: 'linear-gradient(135deg, #0A0F1E 0%, #152035 100%)', color: 'white' }}>
-            <h3 className="text-3xl md:text-4xl font-black mb-4">
-              La solución: Un ecosistema digital<br />
-              que <span className="gradient-text">trabaja por ti</span>
+          <div className="reveal solution-banner text-center">
+            <h3 className="display-heading text-2xl sm:text-3xl lg:text-4xl text-white mb-4 text-balance relative z-10">
+              La solución: Un ecosistema digital que <span className="gradient-text">trabaja por ti</span>
             </h3>
-            <p className="text-white/60 text-lg mb-8 max-w-2xl mx-auto">
+            <p className="text-white/55 text-base lg:text-lg mb-8 max-w-2xl mx-auto font-light relative z-10">
               Página web profesional + automatizaciones inteligentes = más clientes con menos esfuerzo
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-3 relative z-10">
               {['Visibilidad en Google', 'Reservaciones 24/7', 'Follow-up automático', 'WhatsApp integrado', 'SEO Local'].map((item) => (
-                <span key={item} className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold text-white/80 border border-white/15" style={{ background: 'rgba(255,255,255,0.07)' }}>
-                  <Check size={15} color="#22C55E" /> {item}
+                <span key={item} className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-white/75 border border-white/10 bg-white/5">
+                  <Check size={14} color="#22C55E" /> {item}
                 </span>
               ))}
             </div>
@@ -440,14 +431,14 @@ function LandingPage() {
       {/* ════════════════════════════════════
           INDUSTRY GALLERY
       ════════════════════════════════════ */}
-      <section id="soluciones" className="py-24" style={{ background: '#0A0F1E' }}>
-        <div className="max-w-7xl mx-auto px-5">
-          <div className="text-center mb-12 reveal">
-            <div className="feature-badge mb-4"><Palette size={13} /> Ejemplos por industria</div>
-            <h2 className="text-4xl lg:text-5xl font-black text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
+      <section id="soluciones" className="section-dark section-padding ambient-orbs dot-grid-dark">
+        <div className="max-w-7xl mx-auto px-5 lg:px-8 relative z-10">
+          <div className="text-center mb-14 reveal">
+            <div className="section-eyebrow section-eyebrow--light justify-center">Ejemplos por industria</div>
+            <h2 className="display-heading text-3xl sm:text-4xl lg:text-5xl text-white mb-4 text-balance">
               Tu industria, tu <span className="gradient-text">solución perfecta</span>
             </h2>
-            <p className="text-white/60 text-lg max-w-xl mx-auto">
+            <p className="text-white/55 text-base lg:text-lg max-w-xl mx-auto font-light">
               Diseñamos páginas específicas para cada tipo de negocio con las funciones que realmente necesitas.
             </p>
           </div>
@@ -466,40 +457,36 @@ function LandingPage() {
           </div>
 
           {/* Preview */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 xl:gap-16 items-center">
             {/* Mock site preview */}
             <div className="reveal-left">
-              <div className="rounded-2xl overflow-hidden" style={{ boxShadow: '0 40px 80px rgba(0,0,0,0.6)' }}>
-                {/* Browser bar */}
-                <div className="flex items-center gap-2 px-4 py-3" style={{ background: '#0F172A' }}>
-                  <span className="w-3 h-3 rounded-full bg-red-500"></span>
-                  <span className="w-3 h-3 rounded-full bg-yellow-400"></span>
-                  <span className="w-3 h-3 rounded-full bg-green-500"></span>
-                  <div className="flex-1 ml-2 h-5 rounded flex items-center px-2" style={{ background: 'rgba(255,255,255,0.08)' }}>
-                    <span className="text-white/40 text-xs">{ind.name.toLowerCase().replace(/\s+/g, '')}.com.mx</span>
+              <div className="browser-mockup">
+                <div className="browser-chrome">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/90"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/90"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-500/90"></span>
+                  <div className="flex-1 ml-2 h-6 rounded-md flex items-center px-3 bg-white/6">
+                    <span className="text-white/35 text-xs">{ind.name.toLowerCase().replace(/\s+/g, '')}.com.mx</span>
                   </div>
                 </div>
-                {/* Hero mock — real preview image */}
                 <img
                   src={ind.image}
                   alt={`Ejemplo de página web para ${ind.label}: ${ind.name}`}
-                  style={{ display: 'block', width: '100%', height: 220, objectFit: 'cover' }}
+                  className="block w-full h-[220px] object-cover"
                 />
-                {/* Nav mock */}
-                <div style={{ background: 'white', padding: '0.875rem 1.25rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #F1F5F9' }}>
-                  <span style={{ fontWeight: 800, color: '#0A0F1E', fontSize: '0.9rem' }}>{ind.name.split(' ')[0]}</span>
-                  <div style={{ display: 'flex', gap: '1rem' }}>
-                    {['Inicio', 'Servicios', 'Contacto'].map(m => <span key={m} style={{ fontSize: '0.72rem', color: '#64748B', fontWeight: 600 }}>{m}</span>)}
+                <div className="bg-white px-5 py-3.5 flex justify-between items-center border-b border-gray-100">
+                  <span className="font-bold text-[var(--navy)] text-sm">{ind.name.split(' ')[0]}</span>
+                  <div className="flex gap-4">
+                    {['Inicio', 'Servicios', 'Contacto'].map(m => <span key={m} className="text-xs text-gray-400 font-medium">{m}</span>)}
                   </div>
-                  <span style={{ fontSize: '0.72rem', color: 'white', background: ind.color, padding: '0.25rem 0.75rem', borderRadius: '100px', fontWeight: 700 }}>WhatsApp</span>
+                  <span className="text-xs text-white font-semibold px-3 py-1 rounded-full" style={{ background: ind.color }}>WhatsApp</span>
                 </div>
-                {/* Content mock */}
-                <div style={{ background: '#F8FAFC', padding: '1.25rem', minHeight: 120 }}>
-                  <p style={{ color: '#334155', fontSize: '0.8rem', marginBottom: '0.75rem', lineHeight: 1.5 }}>{ind.description}</p>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.4rem' }}>
+                <div className="bg-[#F8FAFC] p-5 min-h-[120px]">
+                  <p className="text-gray-600 text-sm mb-3 leading-relaxed">{ind.description}</p>
+                  <div className="grid grid-cols-2 gap-1.5">
                     {ind.features.slice(0, 6).map((f) => (
-                      <div key={f} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.68rem', color: '#475569', fontWeight: 500 }}>
-                        <Check size={12} color={ind.color} /> {f}
+                      <div key={f} className="flex items-center gap-1.5 text-[0.68rem] text-gray-500 font-medium">
+                        <Check size={11} color={ind.color} /> {f}
                       </div>
                     ))}
                   </div>
@@ -509,27 +496,27 @@ function LandingPage() {
 
             {/* Details */}
             <div className="reveal-right">
-              <div className="feature-badge mb-5" style={{ background: `${ind.color}18`, border: `1px solid ${ind.color}30`, color: ind.color }}>
-                <ind.Icon size={13} /> {ind.label}
+              <div className="feature-badge mb-5" style={{ background: `${ind.color}15`, border: `1px solid ${ind.color}25`, color: ind.color }}>
+                <ind.Icon size={12} /> {ind.label}
               </div>
-              <h3 className="text-3xl font-black text-white mb-4">{ind.name}</h3>
-              <p className="text-white/60 text-lg mb-8">{ind.description}</p>
+              <h3 className="display-heading text-2xl sm:text-3xl text-white mb-4">{ind.name}</h3>
+              <p className="text-white/55 text-base lg:text-lg mb-8 font-light leading-relaxed">{ind.description}</p>
 
               <div className="mb-8">
-                <h4 className="text-white/50 text-xs font-bold uppercase tracking-widest mb-4">Funciones incluidas</h4>
-                <div className="grid grid-cols-2 gap-3">
+                <h4 className="section-eyebrow section-eyebrow--light mb-5" style={{ fontSize: '0.65rem' }}>Funciones incluidas</h4>
+                <div className="grid grid-cols-2 gap-2.5">
                   {ind.features.map((f) => (
                     <div key={f} className="check-item">
                       <div className="check-icon" style={{ background: `linear-gradient(135deg, ${ind.color}, ${ind.color}bb)` }}>
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="white"><polyline points="2,6 5,9 10,3" strokeWidth="2" stroke="white" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                        <svg width="10" height="10" viewBox="0 0 12 12" fill="white"><polyline points="2,6 5,9 10,3" strokeWidth="2" stroke="white" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
                       </div>
-                      <span className="text-white/75 text-sm font-medium">{f}</span>
+                      <span className="text-white/70 text-sm">{f}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="flex gap-4 flex-wrap">
+              <div className="flex gap-3 flex-wrap">
                 <a href="#contacto" className="btn-primary">
                   Ver demo de mi industria
                 </a>
@@ -539,7 +526,7 @@ function LandingPage() {
                   rel="noopener noreferrer"
                   className="btn-whatsapp"
                 >
-                  <MessageCircle size={18} /> WhatsApp
+                  <MessageCircle size={17} /> WhatsApp
                 </a>
               </div>
             </div>
@@ -550,58 +537,57 @@ function LandingPage() {
       {/* ════════════════════════════════════
           AUTOMATION SHOWCASE
       ════════════════════════════════════ */}
-      <section id="automatizaciones" className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-5">
-          <div className="text-center mb-16 reveal">
-            <div className="feature-badge mb-4"><Bot size={13} /> Automatizaciones inteligentes</div>
-            <h2 className="text-4xl lg:text-5xl font-black mb-5" style={{ letterSpacing: '-0.02em', color: '#0A0F1E' }}>
-              Convierte visitas en clientes<br />
-              <span className="gradient-text">automáticamente</span>
+      <section id="automatizaciones" className="section-light section-padding">
+        <div className="max-w-7xl mx-auto px-5 lg:px-8">
+          <div className="text-center mb-14 reveal">
+            <div className="section-eyebrow justify-center">Automatizaciones inteligentes</div>
+            <h2 className="display-heading text-3xl sm:text-4xl lg:text-5xl mb-5 text-balance" style={{ color: 'var(--navy)' }}>
+              Convierte visitas en clientes <span className="gradient-text">automáticamente</span>
             </h2>
-            <p className="text-xl text-gray-500 max-w-2xl mx-auto">
+            <p className="text-lg lg:text-xl text-gray-500 max-w-2xl mx-auto font-light">
               Tu negocio capta leads, confirma citas y hace seguimiento sin que tengas que mover un dedo.
             </p>
           </div>
 
           {/* Toggle buttons */}
-          <div className="flex justify-center gap-3 mb-12 reveal">
+          <div className="flex flex-wrap justify-center gap-2.5 mb-12 reveal">
             {automations.map((a, i) => (
               <button
                 key={a.industry}
                 onClick={() => setActiveAuto(i)}
-                className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 ${activeAuto === i ? 'text-white shadow-lg' : 'text-gray-400 bg-gray-100 hover:bg-gray-200 hover:text-gray-700'}`}
-                style={activeAuto === i ? { background: `linear-gradient(135deg, ${a.color}, ${a.color}bb)`, boxShadow: `0 4px 15px ${a.color}44` } : {}}
+                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${activeAuto === i ? 'text-white shadow-lg' : 'text-gray-500 bg-gray-50 border border-gray-100 hover:bg-gray-100 hover:text-gray-700'}`}
+                style={activeAuto === i ? { background: `linear-gradient(135deg, ${a.color}, ${a.color}cc)`, boxShadow: `0 4px 20px ${a.color}35` } : {}}
               >
-                <a.Icon size={15} /> {a.industry}
+                <a.Icon size={14} /> {a.industry}
               </button>
             ))}
           </div>
 
           {/* Flow */}
           <div className="max-w-2xl mx-auto reveal">
-            <div className="rounded-3xl p-8" style={{ background: '#0A0F1E' }}>
-              <div className="flex flex-col gap-3">
+            <div className="rounded-2xl p-6 sm:p-8" style={{ background: 'var(--navy)', border: '1px solid rgba(255,255,255,0.06)' }}>
+              <div className="flex flex-col gap-2.5">
                 {automations[activeAuto].steps.map((step, i) => (
                   <div key={i}>
                     <div className="flow-step">
-                      <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: `${automations[activeAuto].color}20` }}>
-                        <step.Icon size={18} color={automations[activeAuto].color} />
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: `${automations[activeAuto].color}18` }}>
+                        <step.Icon size={17} color={automations[activeAuto].color} />
                       </div>
-                      <div className="flex-1">
-                        <div className="text-white font-semibold text-sm">{step.label}</div>
-                        <div className="text-white/45 text-xs mt-0.5">{step.desc}</div>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-white font-medium text-sm">{step.label}</div>
+                        <div className="text-white/40 text-xs mt-0.5">{step.desc}</div>
                       </div>
-                      <div className="text-white/20 text-xs font-bold">0{i + 1}</div>
+                      <div className="text-white/20 text-xs font-semibold tabular-nums">0{i + 1}</div>
                     </div>
                     {i < automations[activeAuto].steps.length - 1 && (
-                      <div className="flex justify-start ml-5 my-1">
-                        <div className="w-0.5 h-4" style={{ background: `${automations[activeAuto].color}30` }}></div>
+                      <div className="flex justify-start ml-5 my-0.5">
+                        <div className="w-px h-3" style={{ background: `${automations[activeAuto].color}25` }}></div>
                       </div>
                     )}
                   </div>
                 ))}
               </div>
-              <div className="mt-6 pt-6 border-t border-white/10 text-center">
+              <div className="mt-6 pt-6 border-t border-white/8 text-center">
                 <p className="text-white/40 text-sm mb-4">Todo esto sucede sin intervención manual</p>
                 <a href="#contacto" className="btn-primary">
                   Quiero esto para mi negocio
@@ -615,20 +601,19 @@ function LandingPage() {
       {/* ════════════════════════════════════
           PRICING
       ════════════════════════════════════ */}
-      <section id="precios" className="py-24" style={{ background: '#0A0F1E' }}>
-        <div className="max-w-7xl mx-auto px-5">
-          <div className="text-center mb-16 reveal">
-            <div className="feature-badge mb-4"><CreditCard size={13} /> Precios transparentes</div>
-            <h2 className="text-4xl lg:text-5xl font-black text-white mb-5" style={{ letterSpacing: '-0.02em' }}>
-              Inversión que se paga sola<br />
-              <span className="gradient-text">desde el primer mes</span>
+      <section id="precios" className="section-dark section-padding ambient-orbs">
+        <div className="max-w-7xl mx-auto px-5 lg:px-8 relative z-10">
+          <div className="text-center mb-14 reveal">
+            <div className="section-eyebrow section-eyebrow--light justify-center">Precios transparentes</div>
+            <h2 className="display-heading text-3xl sm:text-4xl lg:text-5xl text-white mb-5 text-balance">
+              Inversión que se paga sola <span className="gradient-text">desde el primer mes</span>
             </h2>
-            <p className="text-white/55 text-lg max-w-xl mx-auto">
+            <p className="text-white/50 text-base lg:text-lg max-w-xl mx-auto font-light">
               Planes diseñados para el mercado mexicano. Sin contratos forzosos, sin sorpresas.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 items-start reveal">
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch reveal">
             {/* Starter */}
             <div className="pricing-card">
               <div className="text-white/40 text-xs font-bold uppercase tracking-widest mb-3">Starter Website</div>
@@ -722,42 +707,42 @@ function LandingPage() {
       {/* ════════════════════════════════════
           SOCIAL PROOF / TESTIMONIALS
       ════════════════════════════════════ */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-5">
+      <section className="section-light section-padding">
+        <div className="max-w-7xl mx-auto px-5 lg:px-8">
           <div className="text-center mb-12 reveal">
-            <div className="feature-badge mb-4" style={{ background: 'rgba(34,197,94,0.08)', border: '1px solid rgba(34,197,94,0.2)', color: '#16A34A' }}>
+            <div className="section-eyebrow justify-center" style={{ color: '#16A34A' }}>
               <span className="inline-flex items-center gap-0.5">
-                {[...Array(5)].map((_, i) => <Star key={i} size={12} fill="#16A34A" stroke="none" />)}
+                {[...Array(5)].map((_, i) => <Star key={i} size={11} fill="#16A34A" stroke="none" />)}
               </span>
               Resultados reales
             </div>
-            <h2 className="text-3xl lg:text-4xl font-black mb-4" style={{ color: '#0A0F1E', letterSpacing: '-0.02em' }}>
+            <h2 className="display-heading text-2xl sm:text-3xl lg:text-4xl text-balance" style={{ color: 'var(--navy)' }}>
               Negocios que ya <span className="gradient-text">transformaron sus ventas</span>
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 reveal">
+          <div className="grid md:grid-cols-3 gap-5 lg:gap-6 reveal">
             {[
               { name: 'Restaurante La Paloma', city: 'Guadalajara', Icon: UtensilsCrossed, result: '+180% reservaciones en línea', quote: 'Antes llenábamos solo por Instagram. Ahora Google nos manda clientes solos y el sistema de reservas trabaja 24/7 sin nosotros.', color: '#EF4444' },
               { name: 'Dra. Martínez Dental', city: 'Ciudad de México', Icon: Stethoscope, result: '-60% citas olvidadas', quote: 'Los recordatorios automáticos por WhatsApp eliminaron casi todos los no-shows. Mis pacientes agradecen el recordatorio y yo no pierdo dinero.', color: '#14B8A6' },
               { name: 'Hotel Brisas del Mar', city: 'Puerto Vallarta', Icon: Hotel, result: '+3x reservas directas', quote: 'Dejamos de pagar comisiones altísimas a Booking. Ahora el 60% de nuestras reservas llegan directo por nuestra web.', color: '#3B82F6' },
             ].map((t) => (
-              <div key={t.name} className="card-hover p-7 rounded-2xl border border-gray-100" style={{ background: '#FAFAFA' }}>
+              <div key={t.name} className="testimonial-card">
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: `${t.color}15` }}>
-                    <t.Icon size={22} color={t.color} />
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: `${t.color}12` }}>
+                    <t.Icon size={20} color={t.color} />
                   </div>
-                  <div>
-                    <div className="font-bold text-sm" style={{ color: '#0A0F1E' }}>{t.name}</div>
+                  <div className="min-w-0">
+                    <div className="font-semibold text-sm truncate" style={{ color: 'var(--navy)' }}>{t.name}</div>
                     <div className="text-gray-400 text-xs">{t.city}</div>
                   </div>
-                  <div className="ml-auto px-3 py-1 rounded-full text-xs font-bold text-white" style={{ background: t.color }}>
+                  <div className="ml-auto px-2.5 py-1 rounded-full text-[0.65rem] font-semibold text-white whitespace-nowrap" style={{ background: t.color }}>
                     {t.result}
                   </div>
                 </div>
                 <p className="text-gray-600 text-sm leading-relaxed italic">"{t.quote}"</p>
                 <div className="flex mt-4 gap-0.5">
-                  {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#FACC15" stroke="none" />)}
+                  {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#FACC15" stroke="none" />)}
                 </div>
               </div>
             ))}
@@ -768,19 +753,19 @@ function LandingPage() {
       {/* ════════════════════════════════════
           CITIES
       ════════════════════════════════════ */}
-      <section className="py-16" style={{ background: '#F8FAFC' }}>
-        <div className="max-w-7xl mx-auto px-5">
+      <section className="section-muted section-padding">
+        <div className="max-w-7xl mx-auto px-5 lg:px-8">
           <div className="text-center mb-10 reveal">
-            <h2 className="text-3xl font-black mb-3" style={{ color: '#0A0F1E' }}>
+            <h2 className="display-heading text-2xl sm:text-3xl mb-3" style={{ color: 'var(--navy)' }}>
               Creamos páginas para negocios en <span className="gradient-text">todo México</span>
             </h2>
-            <p className="text-gray-500">Trabajamos 100% remoto — te entregamos resultados sin importar donde estés</p>
+            <p className="text-gray-500 font-light">Trabajamos 100% remoto — te entregamos resultados sin importar donde estés</p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 reveal">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 lg:gap-4 reveal">
             {cities.map((city) => (
-              <div key={city} className="card-hover flex flex-col items-center gap-2 p-4 rounded-xl border border-gray-100 bg-white text-center">
-                <MapPin size={22} color="#F59E0B" />
-                <span className="text-xs font-semibold text-gray-600">{city}</span>
+              <div key={city} className="city-card">
+                <MapPin size={20} color="#F59E0B" />
+                <span className="text-xs font-medium text-gray-600">{city}</span>
               </div>
             ))}
           </div>
@@ -790,64 +775,63 @@ function LandingPage() {
       {/* ════════════════════════════════════
           LEAD CAPTURE FORM
       ════════════════════════════════════ */}
-      <section id="contacto" className="py-24" style={{ background: '#0A0F1E' }}>
-        <div className="max-w-6xl mx-auto px-5">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+      <section id="contacto" className="section-dark section-padding ambient-orbs">
+        <div className="max-w-6xl mx-auto px-5 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 xl:gap-16 items-start">
             {/* Left copy */}
             <div className="reveal-left">
-              <div className="feature-badge mb-6"><Target size={13} /> Demo gratuita sin compromiso</div>
-              <h2 className="text-4xl lg:text-5xl font-black text-white mb-6" style={{ letterSpacing: '-0.02em' }}>
-                ¿Quieres ver cómo quedaría la<br />
-                página de <span className="gradient-text">tu negocio</span>?
+              <div className="section-eyebrow section-eyebrow--light">Demo gratuita sin compromiso</div>
+              <h2 className="display-heading text-3xl sm:text-4xl lg:text-5xl text-white mb-6 text-balance">
+                ¿Quieres ver cómo quedaría la página de <span className="gradient-text">tu negocio</span>?
               </h2>
-              <p className="text-white/60 text-lg mb-8 leading-relaxed">
+              <p className="text-white/55 text-base lg:text-lg mb-8 leading-relaxed font-light">
                 En menos de 48 horas creamos un demo personalizado para tu negocio.
                 Completamente gratis, sin compromiso.
               </p>
 
-              <div className="flex flex-col gap-5 mb-10">
+              <div className="flex flex-col gap-4 mb-10">
                 {[
                   { Icon: Zap, title: 'Demo en 48 horas', desc: 'Prototipo real con tu nombre y servicios' },
                   { Icon: Palette, title: 'Diseño personalizado', desc: 'Adaptado a tu industria y ciudad' },
                   { Icon: Bot, title: 'Automatizaciones incluidas', desc: 'Te mostramos cómo funciona el sistema' },
                   { Icon: MessageSquare, title: 'Consulta estratégica', desc: 'Revisamos juntos cómo capturar más clientes' },
                 ].map((item) => (
-                  <div key={item.title} className="flex items-start gap-4">
-                    <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(245,158,11,0.12)', border: '1px solid rgba(245,158,11,0.2)' }}>
-                      <item.Icon size={20} color="#F59E0B" />
+                  <div key={item.title} className="flex items-start gap-3.5">
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.18)' }}>
+                      <item.Icon size={18} color="#F59E0B" />
                     </div>
                     <div>
-                      <div className="text-white font-semibold text-sm">{item.title}</div>
-                      <div className="text-white/45 text-sm">{item.desc}</div>
+                      <div className="text-white font-medium text-sm">{item.title}</div>
+                      <div className="text-white/40 text-sm">{item.desc}</div>
                     </div>
                   </div>
                 ))}
               </div>
 
               {/* Alternative contact CTAs */}
-              <div className="rounded-2xl p-5 mb-5" style={{ background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.2)' }}>
-                <p className="text-white/60 text-sm mb-3">¿Prefieres agendar una llamada?</p>
+              <div className="surface-card-dark p-5 mb-4">
+                <p className="text-white/50 text-sm mb-3">¿Prefieres agendar una llamada?</p>
                 <a
                   href={CALENDLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary"
-                  style={{ padding: '0.75rem 1.5rem', fontSize: '0.9rem' }}
+                  style={{ padding: '0.7rem 1.4rem', fontSize: '0.875rem' }}
                 >
-                  <Calendar size={18} />
+                  <Calendar size={16} />
                   Agendar 30 min en Calendly
                 </a>
               </div>
-              <div className="rounded-2xl p-5" style={{ background: 'rgba(37,211,102,0.08)', border: '1px solid rgba(37,211,102,0.2)' }}>
-                <p className="text-white/60 text-sm mb-3">¿Prefieres hablar directamente?</p>
+              <div className="surface-card-dark p-5">
+                <p className="text-white/50 text-sm mb-3">¿Prefieres hablar directamente?</p>
                 <a
                   href="https://wa.me/5215500000000?text=Hola%2C%20me%20interesa%20ver%20un%20demo%20para%20mi%20negocio"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-whatsapp"
-                  style={{ padding: '0.75rem 1.5rem', fontSize: '0.9rem' }}
+                  style={{ padding: '0.7rem 1.4rem', fontSize: '0.875rem' }}
                 >
-                  <MessageCircle size={18} />
+                  <MessageCircle size={16} />
                   Escribir por WhatsApp
                 </a>
               </div>
@@ -855,7 +839,7 @@ function LandingPage() {
 
             {/* Form */}
             <div className="reveal-right">
-              <div className="rounded-3xl p-8" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <div className="form-panel p-6 sm:p-8">
                 {formStatus === 'success' ? (
                   <div className="text-center py-12">
                     <div className="flex justify-center mb-4"><PartyPopper size={56} color="#F59E0B" /></div>
@@ -872,8 +856,8 @@ function LandingPage() {
                   </div>
                 ) : (
                   <>
-                    <h3 className="text-xl font-black text-white mb-2">Crear mi demo gratis</h3>
-                    <p className="text-white/45 text-sm mb-6">Completa el formulario y te contactamos en máximo 24 horas</p>
+                    <h3 className="sans-heading text-xl text-white mb-2">Crear mi demo gratis</h3>
+                    <p className="text-white/40 text-sm mb-6">Completa el formulario y te contactamos en máximo 24 horas</p>
 
                     <form
                       ref={formRef}
@@ -986,24 +970,22 @@ function LandingPage() {
       {/* ════════════════════════════════════
           FINAL CTA — URGENCY
       ════════════════════════════════════ */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-5 text-center">
-          <div className="reveal">
-            <div className="text-5xl mb-6">⏰</div>
-            <h2 className="text-4xl lg:text-5xl font-black mb-6" style={{ color: '#0A0F1E', letterSpacing: '-0.02em' }}>
-              Cada día que tu negocio<br />
-              no está en Google,{' '}
-              <span style={{ color: '#EF4444' }}>tus clientes</span><br />
-              <span style={{ color: '#EF4444' }}>encuentran a alguien más</span>
+      <section className="section-light section-padding">
+        <div className="max-w-4xl mx-auto px-5 lg:px-8">
+          <div className="reveal cta-banner">
+            <div className="text-4xl mb-5 relative z-10">⏰</div>
+            <h2 className="display-heading text-2xl sm:text-3xl lg:text-4xl text-white mb-5 text-balance relative z-10">
+              Cada día que tu negocio no está en Google,{' '}
+              <span style={{ color: '#FF6B35' }}>tus clientes encuentran a alguien más</span>
             </h2>
-            <p className="text-xl text-gray-500 mb-10 max-w-2xl mx-auto">
+            <p className="text-base lg:text-lg text-white/55 mb-8 max-w-2xl mx-auto font-light relative z-10">
               No esperes más. Solicita tu demostración gratuita hoy y empieza a capturar clientes desde el primer día.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ fontSize: '1.1rem', padding: '1rem 2.5rem' }}>
-                <Calendar size={18} /> Agendar demostración
+            <div className="flex flex-wrap gap-3 justify-center relative z-10">
+              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ padding: '0.9rem 2rem' }}>
+                <Calendar size={17} /> Agendar demostración
               </a>
-              <a href="#contacto" className="btn-secondary" style={{ fontSize: '1.1rem', padding: '1rem 2.5rem' }}>
+              <a href="#contacto" className="btn-secondary" style={{ padding: '0.9rem 2rem' }}>
                 🚀 Solicitar por formulario
               </a>
               <a
@@ -1011,12 +993,12 @@ function LandingPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-whatsapp"
-                style={{ fontSize: '1.1rem', padding: '1rem 2.5rem' }}
+                style={{ padding: '0.9rem 2rem' }}
               >
                 💬 WhatsApp directo
               </a>
             </div>
-            <p className="text-gray-400 text-sm mt-6">
+            <p className="text-white/35 text-sm mt-6 relative z-10">
               ✅ Sin contratos &nbsp;·&nbsp; ✅ Demo gratis en 48 horas &nbsp;·&nbsp; ✅ 100% personalizado para tu negocio
             </p>
           </div>
@@ -1026,15 +1008,17 @@ function LandingPage() {
       {/* ════════════════════════════════════
           FOOTER
       ════════════════════════════════════ */}
-      <footer style={{ background: '#060810', borderTop: '1px solid rgba(255,255,255,0.05)', padding: '3rem 1.25rem' }}>
+      <footer className="site-footer">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 mb-10">
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 mb-10">
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center text-lg" style={{ background: 'linear-gradient(135deg, #F59E0B, #FF6B35)' }}>🚀</div>
-                <span className="text-white font-bold">WebPro México</span>
+              <div className="flex items-center gap-2.5 mb-4">
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #F59E0B, #FF6B35)' }}>
+                  <Rocket size={16} color="white" />
+                </div>
+                <span className="text-white font-semibold text-sm">WebPro México</span>
               </div>
-              <p className="text-white/40 text-sm leading-relaxed">
+              <p className="text-white/35 text-sm leading-relaxed">
                 Agencia digital especializada en páginas web + automatizaciones para PYMES en México.
               </p>
             </div>

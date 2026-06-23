@@ -10,10 +10,10 @@ const config = defineConfig({
     viteTsConfigPaths({
       projects: ['./tsconfig.json'],
     }),
-    tailwindcss(),
-    nitro({ preset: 'vercel' }),
     tanstackStart(),
     viteReact(),
+    tailwindcss(),
+    nitro({ preset: 'vercel' }),
   ],
 })
 

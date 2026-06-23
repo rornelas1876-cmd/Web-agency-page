@@ -1,5 +1,6 @@
+/// <reference types="vite/client" />
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
-import '../styles.css'
+import appCss from '../styles.css?url'
 
 export const Route = createRootRoute({
   head: () => ({
@@ -15,6 +16,7 @@ export const Route = createRootRoute({
       { name: 'theme-color', content: '#0A0F1E' },
     ],
     links: [
+      { rel: 'stylesheet', href: appCss },
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
       { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap' },
