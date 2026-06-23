@@ -1,4 +1,4 @@
-@import "tailwindcss" source("../");
+@import 'tailwindcss' source('../');
 
 :root {
   --navy: #0A0F1E;
